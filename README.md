@@ -3,9 +3,30 @@ Using a Raspberry Pi to add smarts to a standard UPS with a USB interface
 
 <img alt="UPS and Raspberry Pi" src="UPSRPI.JPEG">
 
-## In Progress
-Video is finished, just need to finish this github and upload!
+## Overview
+A [Rasbperry Pi](https://www.raspberrypi.com/) can be used to give remote management capabilities to a standard consumer-grade UPS that only has a USB port. The RPi runs a software suite called [Network UPS Tools (NUT)](https://networkupstools.org/) allowing for remote monitoring and commands via wifi. This can be combined with a platform like [Home Assistant](https://home-assistant.io) and a smart plug to provide a way to shut down the UPS along with connected devices completely and then bring it back online when necessary. 
 
+## Rasberry Pi Configuration
+Raspberry Pi Imager can be used to write the operating system to the SD card. 
+1. Select Raspberry Pi Zero 2 W for the Device
+2. Select Raspberry Pi OS Lite (64-bit) [NOTE: You may need to select "Other" for this to appear]
+3. Set up your username, password, and Wifi info under Customisation
+4. Enable SSH (also under Customisation)
+5. Write the SD card, plug it in to your Pi, and plug your Pi into power and to the UPS
+6. You may need to use an IP scanner or check your DHCP logs to find the IP of the Pi
+7. Connect to the Pi using [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (or any other SSH client) and log in
+
+## Unattended Upgrades
+Unattended Upgrades
+
+## NUT Configuration
+NUT Configuration
+
+## In Progress
+HA config, smart plug, automations
+
+## YouTube Video
+Goes here
 
 ## Bill of Materials
 

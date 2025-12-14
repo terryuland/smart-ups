@@ -1,6 +1,8 @@
 # Smart UPS
 Using a Raspberry Pi to add smarts to a standard UPS with a USB interface
 
+<img alt="UPS and Raspberry Pi" src="UPSRPI.JPEG">
+
 ## In Progress
 Video is finished, just need to finish this github and upload!
 

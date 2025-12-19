@@ -17,10 +17,43 @@ Raspberry Pi Imager can be used to write the operating system to the SD card.
 7. Connect to the Pi using [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (or any other SSH client) and log in
 
 ## Unattended Upgrades
-Unattended Upgrades
+This will install the [unattended-upgrades](https://wiki.debian.org/PeriodicUpdates) package and configure it
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y unattended-upgrades
+echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean true | sudo debconf-set-selections
+sudo dpkg-reconfigure -f noninteractive unattended-upgrades
+```
 
 ## NUT Configuration
-NUT Configuration
+Install NUT with `sudo apt-get install nut-server`
+Edit the following files using your favorite text editor:
+### /etc/nut/nut.conf
+Change `MODE` to `netserver`
+### /etc/nut/ups.conf
+Add a block for the UPS unit connected. AFAIK all USB units use the `usbhid-ups` driver. If you only have one UPS, you can use `auto` for the port.
+```
+[name-of-ups]
+  driver = usbhid-ups
+  port = auto
+```
+### /etc/nut/upsd.conf
+Add a line to make it listen for remote connections.
+`LISTEN 0.0.0.0 3493`
+### /etc/nut/upsd.users
+Add a block for your admin user and password that will have full control.
+```
+[admin]
+  password = somereallysecretpassword
+  actions = SET
+  instcmds = ALL
+```
+Restart NUT after editing the files with `sudo /etc/init.d/nut-server restart`
+You can test the installation with the following commands:
+
+`upsc -l` will list the UPS units on the local machine
+
+`upsc upsname@localhost` will print the data from the ups called `upsname`
 
 ## In Progress
 HA config, smart plug, automations

@@ -55,8 +55,12 @@ You can test the installation with the following commands:
 
 `upsc upsname@localhost` will print the data from the ups called `upsname`
 
-## In Progress
-HA config, smart plug, automations
+## Home Assistant Configuration
+If the NUT server is on the same network segment as your Home Assistant server, it should be auto-discovered and show up under Integrations. If it does not, you'll need to [manually add the Network UPS Tools (NUT) integration](https://www.home-assistant.io/integrations/nut/#configuration)
+
+Once the integration is installed and configured you should be able to see everything the UPS reports. You can also write automations that turn off the load immediately, turn it off and then turn it back on when power returns, turn on or off the buzzer, and so forth. You can see all the commands available on your UPS by running `upscmd -l upsname` from the RPi console.
+
+You can also select from a drop-down list from within the Automation Editor. Click on Add action, then Device, type in "nut" to search for your UPS, and select it. The Action menu with the drop down appears just underneath the Device.
 
 ## YouTube Video
 Goes here

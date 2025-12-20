@@ -63,7 +63,7 @@ Once the integration is installed and configured you should be able to see every
 You can also select from a drop-down list from within the Automation Editor. Click on Add action, then Device, type in "nut" to search for your UPS, and select it. The Action menu with the drop down appears just underneath the Device.
 
 ## YouTube Video
-Goes here
+[![Build a Smart UPS with a Raspberry Pi](http://img.youtube.com/vi/hevZpf9laTU/0.jpg)](http://www.youtube.com/watch?v=hevZpf9laTU)
 
 ## Bill of Materials
 
